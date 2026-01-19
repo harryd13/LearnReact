@@ -1,16 +1,47 @@
-# React + Vite
+# WeatherX
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React + Vite weather app that lets you search a city and view current conditions.
+It uses the Open-Meteo Geocoding API to resolve latitude/longitude and then fetches
+current weather data from the Open-Meteo Forecast API.
 
-Currently, two official plugins are available:
+## Features
+- City search input with submit action
+- Fetches geocoding and weather data on submit
+- Clean, centered UI using Tailwind CSS
+- Loading and error states
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- React (Vite)
+- Tailwind CSS
+- Open-Meteo APIs
 
-## React Compiler
+## Project Structure
+- `src/components/CityCard.jsx` - Input card UI
+- `src/components/InfoCard.jsx` - Weather info display
+- `src/hooks/useWeatherData.js` - Fetches geocoding + weather data
+- `src/App.jsx` - App layout and state wiring
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Run Locally
+From the repo root:
 
-## Expanding the ESLint configuration
+```bash
+cd weatherX
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Then open the URL printed in the terminal (usually `http://localhost:5173`).
+
+## Notes
+- No API key required (Open-Meteo is free for basic usage).
+- If you want to change which weather fields are shown, update
+  `src/hooks/useWeatherData.js` and `src/components/InfoCard.jsx`.
+
+## Push Changes
+From the repo root:
+
+```bash
+git add weatherX
+git commit -m "Update WeatherX"
+git push
+```
